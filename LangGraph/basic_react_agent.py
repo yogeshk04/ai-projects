@@ -7,7 +7,7 @@ import datetime
 load_dotenv()
 
 # Initialize the Google Generative AI model
-llm = ChatGoogleGenerativeAI(model="gemini-1.5-pro")
+llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash")
 
 # Initialize the Tavily search tool
 search_tool = TavilySearchResults(seach_depth="basic")
