@@ -24,11 +24,15 @@ llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash")
 # Step 4: Define the chat function
 def chat_function(state: State):
     response = llm.invoke(state["messages"])
-    # If response is an object/dict, extract only the content
-    if isinstance(response, dict) and "content" in response:
-        content = response["content"]
-    else:
-        content = str(response)
+    # For Google Generative AI, extract only the content attribute
+    try:
+        content = response.content  # Only the text reply
+    except AttributeError:
+        # fallback for dict or other types
+        if isinstance(response, dict) and "content" in response:
+            content = response["content"]
+        else:
+            content = str(response)
     state["messages"].append({"role": "assistant", "content": content})
     return {"messages": state["messages"]}
 
