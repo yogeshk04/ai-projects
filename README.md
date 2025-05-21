@@ -1,2 +1,2 @@
 # ai-projects
-This repo consist of all my ai learning and ai agents building projects
+This repository contains all of my AI learning experiments and projects focused on building AI agents.
