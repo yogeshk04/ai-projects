@@ -5,6 +5,7 @@ from typing import Any, List, Dict
 from langgraph.graph import StateGraph, START, END
 from langchain_ollama.llms import OllamaLLM
 from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_openai import OpenAI
 from dotenv import load_dotenv
 
 # Load environment variables from .env file
@@ -18,8 +19,16 @@ class State(Dict):
 graph_builder = StateGraph(State)
 
 # Step 3: Initialize the LLM
+
+# Initialize the Ollama LLM modelhi
+
 #llm = OllamaLLM(model="llama3.1")
+
+# Initialize the Google Generative AI model
 llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash")
+
+# Initialize the OpenAI model (if needed)
+#llm = OpenAI(model="gpt-4o")
 
 # Step 4: Define the chat function
 def chat_function(state: State):
