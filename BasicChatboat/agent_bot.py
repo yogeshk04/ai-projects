@@ -3,6 +3,13 @@ from langchain_core.messages import HumanMessage
 from langchain_openai import ChatOpenAI
 from langgraph.graph import StateGraph, START, END
 from dotenv import load_dotenv
+import os
+import certifi
+
+# Ensure that the certifi package is used for SSL certificates
+os.environ["SSL_CERT_FILE"] = certifi.where()
+
+
 
 # Load environment variables from .env file
 load_dotenv()
@@ -13,6 +20,7 @@ class AgentState(TypedDict):
     
 # Initialize llm with OpenAI's Chat model
 llm = ChatOpenAI(model="gpt-4o")
+#llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash")
 
 # Define the process function that will be used in the state graph
 def process(state: AgentState) -> AgentState:
@@ -35,5 +43,8 @@ agent = stateGraph.compile()
 
 
 user_input = input("You: ")
-agent.invoke({"messages": [HumanMessage(content=user_input)]})
+while user_input.lower() != "exit":
+    agent.invoke({"messages": [HumanMessage(content=user_input)]})
+    user_input = input("You: ")
+# Print a message indicating the end of the conversation
 
