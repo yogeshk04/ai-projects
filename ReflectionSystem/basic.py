@@ -17,7 +17,7 @@ def generate_node(state):
     })
 
 def reflect_node(messages):
-    return reflection_chain.invoke({
+    response = reflection_chain.invoke({
         "messages": messages
     })
     return [HumanMessage(content=response.content)]
