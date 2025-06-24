@@ -1,0 +1,13 @@
+[Start]
+   ↓
+[Intent Detection (OpenAI)]
+   ↓
+[Check Calendar Availability]
+   ↓
+[Suggest Time Slots]
+   ↓
+[User Confirms Slot]
+   ↓
+[Book Appointment]
+   ↓
+[Confirm & End]
