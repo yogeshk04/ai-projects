@@ -10,3 +10,4 @@ langchain_chroma
 langchain_google_genai
 openai
 google-api-python-client
+ipykernel
