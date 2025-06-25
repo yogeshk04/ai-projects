@@ -40,7 +40,7 @@ def check_availability_by_specialization(desired_date:DateModel, specialization:
     #     for _, row in rows.iterrows():
     #         output += f"{row['doctor_name']} - Available slots: {', '.join(row['available_slots'])}\n"
     if len(rows) == 0:
-        output = f("Currently, we do not have any doctors available for the specialization {specialization} on {desired_date.date}. Please choose another date or specialization.")
+        output = (f"Currently, we do not have any doctors available for the specialization {specialization} on {desired_date.date}. Please choose another date or specialization.")
     else:
         def convert_to_am_pm(time_str):
             time_str = str(time_str)
