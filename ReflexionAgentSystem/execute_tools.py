@@ -7,7 +7,7 @@ from langchain_community.tools import TavilySearchResults
 tavili_tool = TavilySearchResults(max_results=5)
 
 # function to execute search queries from AnswerQuestion tool calls
-def execute_tools(state: List(BaseMessage)) -> List[BaseMessage]:
+def execute_tools(state: List[BaseMessage]) -> List[BaseMessage]:
     last_ai_message = AIMessage = state[-1]
 
     # Execute tools calls from the last AI message
